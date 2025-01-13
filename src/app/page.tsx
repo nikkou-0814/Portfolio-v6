@@ -1,101 +1,129 @@
-import Image from "next/image";
+'use client';
+import { MoveRight } from 'lucide-react';
+import { SiGithub } from 'react-icons/si';
+import Link from 'next/link';
+import Marquee from 'react-fast-marquee';
+import Image from 'next/image';
+import { useTheme } from "next-themes";
+import Header from './components/Header';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { resolvedTheme } = useTheme();
+  const imagePaths = [
+    { src: '/images/sc1.png', caption: 'Portfolio-v6', GitHub: 'https://github.com/nikkou-0814/Portfolio-v6' },
+    { src: '/images/sc2.png', caption: 'EarthSaid BOT', GitHub: 'https://github.com/nikkou-0814/EarthSaid' },
+    { src: '/images/sc3.png', caption: 'Kyoshin Report BOT', GitHub: 'https://github.com/nikkou-0814/Kyoshin-Report-BOT' },
+    { src: '/images/sc4.png', caption: 'All in one PiP', GitHub: 'https://github.com/nikkou-0814/All-in-one-PiP' },
+    { src: '/images/sc5.png', caption: 'EewFabric', GitHub: 'https://github.com/nikkou-0814/EewFabric' },
+    { src: '/images/sc6.png', caption: 'WherePlayer', GitHub: 'https://github.com/nikkou-0814/WherePlayer' },
+    { src: '/images/sc7.png', caption: 'HelloPlayer', GitHub: 'https://github.com/nikkou-0814/HelloPlayer' },
+    { src: '/images/sc8.png', caption: 'SlackDown', GitHub: 'https://github.com/nikkou-0814/SlackDown' },
+    { src: '/images/sc9.png', caption: 'Pos', GitHub: 'https://github.com/nikkou-0814/Pos-SpigotMCPlugin' },
+    { src: '/images/sc10.png', caption: 'SyncLyrics', GitHub: 'https://github.com/nikkou-0814/SyncLyrics' },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <main className="min-h-screen">
+      <Header />
+      <section className="flex flex-col items-center justify-center min-h-screen p-8 space-y-6 text-center">
+        <div className="space-y-4">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            nikkou
+          </h1>
+          <h2 className="text-xl md:text-2xl dark:text-gray-300 text-gray-800">
+            Frontend Developer
+          </h2>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <p className="max-w-xl text-gray-700 dark:text-gray-400">
+          Hi! I&apos;m a Japanese student who recently started studying backend development. I enjoy creating projects about earthquakes and music.
+        </p>
+
+        <div className="flex gap-4">
+          <Link
+            href="/projects"
+            className="flex items-center gap-2 px-6 py-3 text-white bg-purple-600 rounded-full hover:bg-purple-800 transition-colors"
+          >
+            See My Projects
+            <MoveRight className="w-4 h-4" />
+          </Link>
+          <Link
+            href="/favorites"
+            className="flex items-center gap-2 px-6 py-3 text-purple-600 dark:text-purple-400 border border-purple-600 rounded-full hover:bg-purple-100 dark:hover:bg-purple-950 transition-colors"
+          >
+            Favorites
+          </Link>
+        </div>
+
+        <div className="fixed bottom-5 left-5 flex gap-4">
+          <Link
+            href="https://github.com/nikkou-0814"
+            className="p-2 text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+          >
+            <SiGithub className="w-6 h-6" />
+          </Link>
+        </div>
+        <div className="absolute bottom-20 w-4/5">
+          <div
+            className="absolute inset-y-0 left-0 w-60 z-10 pointer-events-none"
+            style={{
+              maskImage: "linear-gradient(to right, white, transparent)",
+              WebkitMaskImage: "linear-gradient(to right, white, transparent)",
+              backgroundColor:
+                resolvedTheme === "dark" ? "#0a0a0a" : "white",
+            }}
+          ></div>
+
+          <div
+            className="absolute inset-y-0 right-0 w-60 z-10 pointer-events-none"
+            style={{
+              maskImage: "linear-gradient(to left, white, transparent)",
+              WebkitMaskImage: "linear-gradient(to left, white, transparent)",
+              backgroundColor:
+                resolvedTheme === "dark" ? "#0a0a0a" : "white",
+            }}
+          ></div>
+          <Marquee
+            speed={40}
+            gradient={false}
+            pauseOnHover
+          >
+            {imagePaths.map((item, index) => (
+              <div 
+                key={index} 
+                className="flex-none w-80 h-48 mx-4 relative group overflow-hidden rounded-lg"
+              >
+                <Image 
+                  src={item.src} 
+                  alt={item.caption}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-transform duration-700 transform group-hover:scale-110"
+                  style={{
+                    transitionTimingFunction: 'cubic-bezier(0.19, 1, 0.22, 1)',
+                  }}
+                  priority={index === 0}
+                />
+
+                <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white text-center text-sm p-2 rounded-b-lg">
+                  {item.caption}
+                </div>
+
+                <div 
+                  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                >
+                  <button 
+                    className="bg-white text-black px-4 py-2 rounded-lg font-medium shadow-md hover:bg-gray-200"
+                    onClick={() => window.open(item.GitHub, '_blank')}
+                  >
+                    <SiGithub className="w-6 h-6" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </Marquee>
+        </div>
+      </section>
+    </main>
   );
 }
