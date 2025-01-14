@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const Favorites = () => {
+export default function Favorites() {
   const music = {
     playlistUrl: "https://embed.music.apple.com/jp/playlist/topmusic/pl.u-KVXBkA6TLVvNr9K?l=en-US",
   };
@@ -122,5 +122,3 @@ const Favorites = () => {
     </div>
   );
 };
-
-export default Favorites;

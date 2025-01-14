@@ -6,7 +6,7 @@ import { SiGithub } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react'
 
-const Projects = () => {
+export default function Projects() {
   const projects = [
     {
       title: 'Portfolio-v6',
@@ -171,5 +171,3 @@ const Projects = () => {
     </div>
   );
 };
-
-export default Projects;

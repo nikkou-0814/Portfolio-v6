@@ -1,6 +1,6 @@
 'use client';
 
-const About = () => {
+export default function About() {
   return (
     <main className="min-h-screen">
       <section className="flex flex-col items-center justify-center min-h-screen p-8 space-y-8 max-w-4xl mx-auto">
@@ -102,5 +102,3 @@ const About = () => {
     </main>
   );
 }
-
-export default About;

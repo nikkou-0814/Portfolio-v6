@@ -53,15 +53,6 @@ export default function Home() {
             About Me
           </Link>
         </div>
-
-        <div className="fixed bottom-5 left-5 flex gap-4">
-          <Link
-            href="https://github.com/nikkou-0814"
-            className="p-2 text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-          >
-            <SiGithub className="w-6 h-6" />
-          </Link>
-        </div>
         <div className="absolute bottom-20 w-4/5">
           <div
             className="absolute inset-y-0 left-0 w-60 z-10 pointer-events-none"
