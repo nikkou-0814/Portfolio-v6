@@ -53,7 +53,7 @@ const Favorites = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="space-y-4 text-center mt-16 mb-12">
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent p-2">
-            Favorites
+            My Favorites
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">
             My favorite music and games that I enjoy.
