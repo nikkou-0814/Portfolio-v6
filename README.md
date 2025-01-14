@@ -14,12 +14,6 @@ pnpm i
 pnpm dev
 ```
 
-## Build
-
-```bash
-pnpm run build
-```
-
 ## Reward or Gratitude 🙌
 
 This project would not have been possible without the amazing resources and community. 
