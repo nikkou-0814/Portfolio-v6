@@ -38,7 +38,7 @@ export default function Home() {
           Hi! I&apos;m a Japanese student who recently started studying backend development. I enjoy creating projects about earthquakes and music.
         </p>
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 flex-wrap justify-center items-center">
           <Link
             href="/projects"
             className="flex items-center gap-2 px-6 py-3 text-white bg-purple-600 rounded-full hover:bg-purple-800 transition-colors"
@@ -53,7 +53,7 @@ export default function Home() {
             About Me
           </Link>
         </div>
-        <div className="absolute bottom-20 w-4/5">
+        <div className="absolute bottom-20 w-4/5 hidden md:block">
           <div
             className="absolute inset-y-0 left-0 w-60 z-10 pointer-events-none"
             style={{
@@ -79,12 +79,17 @@ export default function Home() {
             pauseOnHover
           >
             {imagePaths.map((item, index) => (
-              <div 
-                key={index} 
-                className="flex-none w-80 h-48 mx-4 relative group overflow-hidden rounded-lg border border-gray-300 dark:border-gray-800"
+              <div
+                key={index}
+                className="flex-none mx-4 relative group overflow-hidden rounded-lg border border-gray-300 dark:border-gray-800"
+                style={{
+                  aspectRatio: '16 / 9',
+                  width: 'calc(100vw / 4)',
+                  maxWidth: '300px',
+                }}
               >
-                <Image 
-                  src={item.src} 
+                <Image
+                  src={item.src}
                   alt={item.caption}
                   layout="fill"
                   objectFit="cover"
@@ -99,10 +104,10 @@ export default function Home() {
                   {item.caption}
                 </div>
 
-                <div 
+                <div
                   className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 >
-                  <button 
+                  <button
                     className="bg-purple-600 text-white rounded-lg hover:bg-purple-700 px-4 py-2 font-medium shadow-md"
                     onClick={() => window.open(item.GitHub, '_blank')}
                   >
