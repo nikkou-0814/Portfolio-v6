@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-        <div className="flex justify-between items-center mx-auto max-w-7xl px-4 sm:px-6 py-1">
+        <div className="flex justify-between items-center mx-auto max-w-7xl px-4 sm:px-6">
           <div className="hidden md:flex">
             <LinkNavTabs tabs={navTabs} springy />
           </div>

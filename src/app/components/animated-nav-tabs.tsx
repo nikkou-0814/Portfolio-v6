@@ -110,7 +110,7 @@ export function AnimatedNavTabs({
               springy ? 'ease-spring-4' : 'ease-linear'
             }`}
           >
-            <div className="h-1 bg-primary bg-black dark:bg-white rounded-lg" />
+            <div className="bg-primary bg-black dark:bg-white rounded-lg" style={{height: '2px'}} />
           </div>
         </div>
       </div>
