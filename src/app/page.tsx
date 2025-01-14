@@ -1,11 +1,11 @@
 'use client';
+
 import { MoveRight } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
 import Link from 'next/link';
 import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
 import { useTheme } from "next-themes";
-import Header from './components/Header';
 
 export default function Home() {
   const { resolvedTheme } = useTheme();
@@ -24,10 +24,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <Header />
       <section className="flex flex-col items-center justify-center min-h-screen p-8 space-y-6 text-center">
         <div className="space-y-4">
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent p-2">
             nikkou
           </h1>
           <h2 className="text-xl md:text-2xl dark:text-gray-300 text-gray-800">
@@ -48,10 +47,10 @@ export default function Home() {
             <MoveRight className="w-4 h-4" />
           </Link>
           <Link
-            href="/favorites"
+            href="/about"
             className="flex items-center gap-2 px-6 py-3 text-purple-600 dark:text-purple-400 border border-purple-600 rounded-full hover:bg-purple-100 dark:hover:bg-purple-950 transition-colors"
           >
-            Favorites
+            About Me
           </Link>
         </div>
 
@@ -91,7 +90,7 @@ export default function Home() {
             {imagePaths.map((item, index) => (
               <div 
                 key={index} 
-                className="flex-none w-80 h-48 mx-4 relative group overflow-hidden rounded-lg"
+                className="flex-none w-80 h-48 mx-4 relative group overflow-hidden rounded-lg border border-gray-300 dark:border-gray-800"
               >
                 <Image 
                   src={item.src} 
@@ -113,7 +112,7 @@ export default function Home() {
                   className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 >
                   <button 
-                    className="bg-white text-black px-4 py-2 rounded-lg font-medium shadow-md hover:bg-gray-200"
+                    className="bg-purple-600 text-white rounded-lg hover:bg-purple-700 px-4 py-2 font-medium shadow-md"
                     onClick={() => window.open(item.GitHub, '_blank')}
                   >
                     <SiGithub className="w-6 h-6" />

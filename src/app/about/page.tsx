@@ -1,13 +1,11 @@
 'use client';
-import Header from '../components/Header';
 
-export default function About() {
+const About = () => {
   return (
-    <main className="min-h-screen mt-16">
-      <Header />
+    <main className="min-h-screen">
       <section className="flex flex-col items-center justify-center min-h-screen p-8 space-y-8 max-w-4xl mx-auto">
-        <div className="space-y-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+        <div className="space-y-4 text-center mt-16">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent p-2">
             About Me
           </h1>
         </div>
@@ -15,17 +13,17 @@ export default function About() {
         <div className="space-y-8 text-gray-700 dark:text-gray-400 leading-relaxed max-w-2xl">
           <div className="space-y-4">
             <p>
-              こんにちは！私はWebデザインやアプリケーション開発を行っている日本の学生です。
-              最近では地震や防災に興味を持っています。
+              Hi there! I’m a student from Japan who is passionate about web design and application development.
+              Recently, I’ve developed a strong interest in earthquakes and disaster prevention.
             </p>
           </div>
 
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-purple-600 dark:text-purple-400">
-              プログラミングの始まり
+              My Start in Programming
             </h3>
             <p>
-              小学4年生の頃、
+              When I was in 4th grade, I discovered programming through a platform called 
               <a
                 href="https://scratch.mit.edu/"
                 target="_blank"
@@ -33,31 +31,31 @@ export default function About() {
                 className="text-purple-600 dark:text-purple-400 underline"
               >
                 Scratch
-              </a>
-              というプログラミング学習サイトでゲームやアプリを制作する中で、プログラミングの基本を学びました。
-              地震関連の開発も、この経験が基礎となっています。
+              </a>.
+              I learned the basics by creating games and apps there, which laid the foundation for my later projects, including earthquake-related development.
             </p>
           </div>
 
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-purple-600 dark:text-purple-400">
-              Webデザインの挑戦
+              My Challenge in Web Design
             </h3>
             <p>
-              プログラミングに興味を持ち、HTMLでWebサイトを制作し始めました。
-              初めはデザインが上手くいきませんでしたが、他のサイトを参考にして少しずつスキルを磨いてきました。
+              My curiosity about programming led me to start creating websites with HTML.
+              Initially, my designs weren’t great, but by studying other sites for inspiration, I gradually honed my skills.
             </p>
           </div>
 
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-purple-600 dark:text-purple-400">
-              地震との出会い
+              Discovering Earthquakes
             </h3>
             <p>
-              能登半島地震がきっかけで地震に強い関心を持つようになりました。その日は母の実家で夕食を準備している最中でした。突然、家が激しく揺れ、エリアメールが鳴り響きました。
+              My interest in earthquakes began with the Noto Peninsula Earthquake. 
+              That day, I was at my mother’s family home preparing dinner when the house suddenly shook violently, and emergency alerts blared.
             </p>
             <p>
-              緊急地震速報ソフト
+              When I opened the emergency earthquake alert software, 
               <a
                 href="https://jquake.net/"
                 target="_blank"
@@ -65,23 +63,26 @@ export default function About() {
                 className="text-purple-600 dark:text-purple-400 underline"
               >
                 JQuake
-              </a>
-              を起動すると、「最大震度7」と表示されていました。この経験が地震観測への興味を大きく広げてくれました。
+              </a>, 
+              it displayed &quot;Maximum intensity 7.&quot; This experience significantly deepened my fascination with earthquake observation.
             </p>
           </div>
 
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-purple-600 dark:text-purple-400">
-              地震情報ツールの開発
+              Developing Earthquake Information Tools
             </h3>
             <p>
-              最初に作った地震関連ツールは「EarthSaidBOT」でした。仕様や設計が未熟だったため課題も多かったですが、経験を積むことで改善してきました。
+              My first earthquake-related tool was &quot;EarthSaidBOT.&quot; 
+              While it had many shortcomings due to my inexperience in design and implementation, I have improved it over time by gaining more experience.
             </p>
             <p>
-              現在は複数の情報源を利用して中継サーバーを運用し、精度と安定性の向上に努めています。これにより、地震情報を迅速かつ確実に取得できるようになりました。
+              Currently, I’m running a relay server that aggregates data from multiple sources, 
+              working to enhance the accuracy and stability of earthquake information delivery. 
+              This allows me to provide timely and reliable updates.
             </p>
             <p className="text-sm text-gray-500">
-              ※
+              Note: This is operated within the scope of personal use in compliance with 
               <a
                 href="https://dmdata.jp/"
                 target="_blank"
@@ -89,16 +90,17 @@ export default function About() {
                 className="text-purple-600 dark:text-purple-400 underline"
               >
                 DM-D.S.S
-              </a>
-              の規約に従い、個人利用の範囲内で運用しています。
+              </a>&apos;s guidelines.
             </p>
           </div>
 
-          <div className="p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg italic">
-            <p>あの地震が、私の地震に対する思いを大きく変えました。</p>
+          <div className="p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg italic border border-purple-300 dark:border-purple-800">
+            <p>That earthquake profoundly changed the way I view earthquakes.</p>
           </div>
         </div>
       </section>
     </main>
   );
 }
+
+export default About;
