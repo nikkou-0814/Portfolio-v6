@@ -7,6 +7,7 @@ import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
 import { useTheme } from "next-themes";
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface Project {
   image: string;
@@ -18,6 +19,7 @@ interface Project {
 export default function Home() {
   const { resolvedTheme } = useTheme();
   const [imagePaths, setImagePaths] = useState<Project[]>([]);
+  const t = useTranslations('HomePage');
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -55,7 +57,7 @@ export default function Home() {
         </div>
 
         <p className="max-w-xl text-gray-700 dark:text-gray-400">
-          Hi! I&apos;m a Japanese student who recently started studying backend development. I enjoy creating projects about earthquakes and music.
+          {t('subtitle')}
         </p>
 
         <div className="flex gap-4 flex-wrap justify-center items-center">
@@ -63,17 +65,17 @@ export default function Home() {
             href="/projects"
             className="flex items-center gap-2 px-6 py-3 text-white bg-purple-600 rounded-full hover:bg-purple-800 transition-colors"
           >
-            See My Projects
+            {t('seeprojects')}
             <MoveRight className="w-4 h-4" />
           </Link>
           <Link
             href="/about"
             className="flex items-center gap-2 px-6 py-3 text-purple-600 dark:text-purple-400 border border-purple-600 rounded-full hover:bg-purple-100 dark:hover:bg-purple-950 transition-colors"
           >
-            About Me
+            {t('aboutme')}
           </Link>
         </div>
-        <div className="absolute bottom-20 w-4/5 hidden md:block">
+        <div className="relative w-4/5 hidden md:block top-5">
           <div
             className="absolute inset-y-0 left-0 w-60 z-10 pointer-events-none"
             style={{

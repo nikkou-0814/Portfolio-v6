@@ -3,6 +3,8 @@ import { Inter } from "next/font/google"
 import Providers from "./providers"
 import Header from "./components/Header"
 import Footer from './components/footer';
+import {NextIntlClientProvider} from 'next-intl';
+import {getLocale, getMessages} from 'next-intl/server';
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -11,17 +13,22 @@ export const metadata = {
   description: "nikkou's Portfolio",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
           <Header />
-          <main>{children}</main>
+          <NextIntlClientProvider messages={messages}>
+            <main>{children}</main>
+          </NextIntlClientProvider>
           <Footer />
         </Providers>
       </body>
