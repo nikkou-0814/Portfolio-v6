@@ -1,26 +1,46 @@
 'use client';
 
-import { MoveRight } from 'lucide-react';
+import { MoveRight, ExternalLink } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
 import Link from 'next/link';
 import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
 import { useTheme } from "next-themes";
+import { useEffect, useState } from 'react';
+
+interface Project {
+  image: string;
+  title: string;
+  github: string;
+  url?: string;
+}
 
 export default function Home() {
   const { resolvedTheme } = useTheme();
-  const imagePaths = [
-    { src: '/images/sc1.png', caption: 'Portfolio-v6', GitHub: 'https://github.com/nikkou-0814/Portfolio-v6' },
-    { src: '/images/sc2.png', caption: 'EarthSaid BOT', GitHub: 'https://github.com/nikkou-0814/EarthSaid' },
-    { src: '/images/sc3.png', caption: 'Kyoshin Report BOT', GitHub: 'https://github.com/nikkou-0814/Kyoshin-Report-BOT' },
-    { src: '/images/sc4.png', caption: 'All in one PiP', GitHub: 'https://github.com/nikkou-0814/All-in-one-PiP' },
-    { src: '/images/sc5.png', caption: 'EewFabric', GitHub: 'https://github.com/nikkou-0814/EewFabric' },
-    { src: '/images/sc6.png', caption: 'WherePlayer', GitHub: 'https://github.com/nikkou-0814/WherePlayer' },
-    { src: '/images/sc7.png', caption: 'HelloPlayer', GitHub: 'https://github.com/nikkou-0814/HelloPlayer' },
-    { src: '/images/sc8.png', caption: 'SlackDown', GitHub: 'https://github.com/nikkou-0814/SlackDown' },
-    { src: '/images/sc9.png', caption: 'Pos', GitHub: 'https://github.com/nikkou-0814/Pos-SpigotMCPlugin' },
-    { src: '/images/sc10.png', caption: 'SyncLyrics', GitHub: 'https://github.com/nikkou-0814/SyncLyrics' },
-  ];
+  const [imagePaths, setImagePaths] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch('/api/projects');
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const data: Project[] = await res.json();
+        const formattedData = data.map((project) => ({
+          image: project.image,
+          title: project.title,
+          github: project.github,
+          url: project.url,
+        }));
+        setImagePaths(formattedData);
+      } catch (error) {
+        console.error('Failed to fetch projects:', error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   return (
     <main className="min-h-screen">
@@ -89,8 +109,8 @@ export default function Home() {
                 }}
               >
                 <Image
-                  src={item.src}
-                  alt={item.caption}
+                  src={item.image}
+                  alt={item.title}
                   layout="fill"
                   objectFit="cover"
                   className="transition-transform duration-700 transform group-hover:scale-110"
@@ -101,18 +121,30 @@ export default function Home() {
                 />
 
                 <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white text-center text-sm p-2 rounded-b-lg">
-                  {item.caption}
+                  {item.title}
                 </div>
 
                 <div
-                  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 space-x-5"
                 >
-                  <button
-                    className="bg-purple-600 text-white rounded-lg hover:bg-purple-700 px-4 py-2 font-medium shadow-md"
-                    onClick={() => window.open(item.GitHub, '_blank')}
+                  <a
+                    href={item.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-purple-600 text-white rounded-lg hover:bg-purple-700 px-4 py-2 font-medium shadow-md flex items-center justify-center"
                   >
                     <SiGithub className="w-6 h-6" />
-                  </button>
+                  </a>
+                  {item.url && (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 text-white rounded-lg hover:bg-blue-700 px-4 py-2 font-medium shadow-md flex items-center justify-center"
+                    >
+                      <ExternalLink className="w-6 h-6" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}

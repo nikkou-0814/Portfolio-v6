@@ -1,52 +1,29 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Game } from '../../types/game';
 
 export default function Favorites() {
-  const music = {
-    playlistUrl: "https://embed.music.apple.com/jp/playlist/topmusic/pl.u-KVXBkA6TLVvNr9K?l=en-US",
-  };
+  const [Games, setGames] = useState<Game[]>([]);
 
-  const games = [
-    {
-      title: 'Blue Archive',
-      image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2z1g.png',
-      description: "The BGM is amazing. But I haven't been able to play it lately.",
-      url: 'https://bluearchive.jp'
-    },
-    {
-      title: 'Cities: Skylines',
-      image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1mx3.png',
-      description: 'Back in the day, playing them on a super low-spec PC is also a fond memory.',
-      url: 'https://www.paradoxinteractive.com/games/cities-skylines'
-    },
-    {
-      title: 'Cities: Skylines II',
-      image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co68lb.png',
-      description: 'I wanted it so much that I went to buy it as soon as it was released.',
-      url: 'https://www.paradoxinteractive.com/games/cities-skylines-ii'
-    },
-    {
-      title: 'Minecraft',
-      image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.png',
-      description: "I've been playing it since the early days of smartphones. Probably the first game I ever played.",
-      url: 'https://minecraft.net'
-    },
-    {
-      title: 'Project Sekai',
-      image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co6bw0.png',
-      description: "Even though I can't do full combos, I'm still playing Master.",
-      url: 'https://pjsekai.sega.jp'
-    },
-    {
-      title: 'VALORANT',
-      image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2mvt.png',
-      description: "I haven't been playing it much lately, but it's quite fun.",
-      url: 'https://playvalorant.com'
-    }
-  ];  
+  useEffect(() => {
+    const fetchGames = async () => {
+      try {
+        const res = await fetch('/api/games');
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const data: Game[] = await res.json();
+        setGames(data);
+      } catch (error) {
+        console.error('Failed to fetch games:', error);
+      }
+    };
+
+    fetchGames();
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -71,7 +48,7 @@ export default function Favorites() {
                 className="w-full h-[450px]"
                 style={{ borderRadius: '15px' }}
                 sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-                src={music.playlistUrl}
+                src="https://embed.music.apple.com/jp/playlist/topmusic/pl.u-KVXBkA6TLVvNr9K?l=en-US"
               />
             </div>
           </div>
@@ -82,7 +59,7 @@ export default function Favorites() {
             Games
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {games.map((game, index) => (
+            {Games.map((game, index) => (
               <motion.div
                 key={game.title}
                 className="group relative flex bg-gray-100 dark:bg-gray-950 rounded-xl overflow-hidden border border-gray-300 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"

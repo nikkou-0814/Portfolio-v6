@@ -1,86 +1,31 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { SiGithub } from 'react-icons/si';
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react';
+import { Project } from '../../types/project';
 
 export default function Projects() {
-  const projects = [
-    {
-      title: 'Portfolio-v6',
-      description: 'I created this portfolio as a step beyond HTML.',
-      image: '/images/sc1.png',
-      github: 'https://github.com/nikkou-0814/Portfolio-v6',
-      url: 'https://nikkou.dev',
-      tags: ['Next.js', 'TailwindCSS', 'Vercel']
-    },
-    {
-      title: 'EarthSaid BOT',
-      description: 'I made this because I wanted to create something related to earthquakes.',
-      image: '/images/sc2.png',
-      github: 'https://github.com/nikkou-0814/EarthSaid',
-      tags: ['Discord.py']
-    },
-    {
-      title: 'Kyoshin Report BOT',
-      description: 'This utilizes the workflow of KyoshinEewViewer for ingen.',
-      image: '/images/sc3.png',
-      github: 'https://github.com/nikkou-0814/Kyoshin-Report-BOT',
-      tags: ['Discord.js', 'Node.js']
-    },
-    {
-      title: 'All in one PiP',
-      description: 'I made it because I wanted it for myself.',
-      image: '/images/sc4.png',
-      github: 'https://github.com/nikkou-0814/All-in-one-PiP',
-      tags: ['JavaScript']
-    },
-    {
-      title: 'EewFabric',
-      description: 'A mod for FabricServer to receive and display earthquake early warnings.',
-      image: '/images/sc5.png',
-      github: 'https://github.com/nikkou-0814/EewFabric',
-      tags: ['Java', 'Minecraft']
-    },
-    {
-      title: 'WherePlayer',
-      description: 'A mod for FabricServer to display player locations.',
-      image: '/images/sc6.png',
-      github: 'https://github.com/nikkou-0814/WherePlayer',
-      tags: ['Java', 'Minecraft']
-    },
-    {
-      title: 'HelloPlayer',
-      description: 'A plugin for Velocity servers to display player join and leave events.',
-      image: '/images/sc7.png',
-      github: 'https://github.com/nikkou-0814/HelloPlayer',
-      tags: ['Java', 'Minecraft']
-    },
-    {
-      title: 'SlackDown',
-      description: 'An extension to scroll Slack threads to the very bottom.',
-      image: '/images/sc8.png',
-      github: 'https://github.com/nikkou-0814/SlackDown',
-      tags: ['JavaScript']
-    },
-    {
-      title: 'Pos',
-      description: 'The Spigot version of WherePlayer.',
-      image: '/images/sc9.png',
-      github: 'https://github.com/nikkou-0814/Pos-SpigotMCPlugin',
-      tags: ['Java', 'Minecraft']
-    },
-    {
-      title: 'SyncLyrics',
-      description: 'A web app that displays synchronized lyrics over a YouTube video background.',
-      image: '/images/sc10.png',
-      github: 'https://github.com/nikkou-0814/SyncLyrics',
-      url: 'https://sync-musiclyrics.vercel.app',
-      tags: ['Next.js', 'TailwindCSS', 'Vercel']
-    },
-  ];
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch('/api/projects');
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const data: Project[] = await res.json();
+        setProjects(data);
+      } catch (error) {
+        console.error('Failed to fetch projects:', error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -170,4 +115,4 @@ export default function Projects() {
       </main>
     </div>
   );
-};
+}
