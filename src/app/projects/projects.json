@@ -100,5 +100,16 @@
     "github": "https://github.com/nikkou-0814/SyncLyrics",
     "url": "https://sync-musiclyrics.vercel.app",
     "tags": ["Next.js", "TailwindCSS", "Vercel"]
+  },
+  {
+    "title": { "en": "ShinQuick", "ja": "震Quick" },
+    "description": {
+      "en": "A web app that displays emergency earthquake alerts.",
+      "ja": "緊急地震速報を表示するWebアプリ"
+    },
+    "image": "/images/sc11.png",
+    "github": "https://github.com/nikkou-0814/Shin-Quick",
+    "url": "https://shin-quick.vercel.app/",
+    "tags": ["Next.js", "TailwindCSS", "Vercel"]
   }
 ]
