@@ -4,9 +4,10 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Game } from '../../types/game';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function Favorites() {
+  const locale = useLocale();
   const [Games, setGames] = useState<Game[]>([]);
   const t = useTranslations('Favorites');
 
@@ -63,7 +64,7 @@ export default function Favorites() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {Games.map((game, index) => (
               <motion.div
-                key={game.title}
+                key={game.title[locale] || game.title['en']}
                 className="group relative flex bg-gray-100 dark:bg-gray-950 rounded-xl overflow-hidden border border-gray-300 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -72,7 +73,7 @@ export default function Favorites() {
                 <div className="w-1/4 h-full">
                   <Image
                     src={game.image}
-                    alt={game.title}
+                    alt={game.title[locale] || game.title['en']}
                     className="w-full h-full object-cover"
                     width={100}
                     height={100}
@@ -86,11 +87,11 @@ export default function Favorites() {
                       rel="noopener noreferrer"
                       className="text-purple-600 dark:text-purple-400 underline"
                     >
-                      {game.title}
+                      {game.title[locale] || game.title['en']}
                     </a>
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    {game.description}
+                    {game.description[locale] || game.description['en']}
                   </p>
                 </div>
               </motion.div>

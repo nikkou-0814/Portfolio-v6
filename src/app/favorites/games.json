@@ -1,38 +1,56 @@
 [
-    {
-      "title": "Blue Archive",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2z1g.png",
-      "description": "The BGM is amazing. But I haven't been able to play it lately.",
-      "url": "https://bluearchive.jp"
+  {
+    "title": { "en": "Blue Archive", "ja": "ブルーアーカイブ" },
+    "description": {
+      "en": "The BGM is amazing. But I haven't been able to play it lately.",
+      "ja": "BGMが素晴らしい。でも最近はプレイできてない。"
     },
-    {
-      "title": "Cities: Skylines",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1mx3.png",
-      "description": "Back in the day, playing them on a super low-spec PC is also a fond memory.",
-      "url": "https://www.paradoxinteractive.com/games/cities-skylines"
+    "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2z1g.png",
+    "url": "https://bluearchive.jp"
+  },
+  {
+    "title": { "en": "Cities: Skylines", "ja": "Cities: Skylines" },
+    "description": {
+      "en": "Back in the day, playing them on a super low-spec PC is also a fond memory.",
+      "ja": "昔は低スペックPCでプレイしていたのも懐かしい思い出。"
     },
-    {
-      "title": "Cities: Skylines II",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co68lb.png",
-      "description": "I wanted it so much that I went to buy it as soon as it was released.",
-      "url": "https://www.paradoxinteractive.com/games/cities-skylines-ii"
+    "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1mx3.png",
+    "url": "https://www.paradoxinteractive.com/games/cities-skylines"
+  },
+  {
+    "title": { "en": "Cities: Skylines II", "ja": "Cities: Skylines II" },
+    "description": {
+      "en": "I wanted it so much that I went to buy it as soon as it was released.",
+      "ja": "発売されるとすぐにでも買いたくなるほど欲しかった。"
     },
-    {
-      "title": "Minecraft",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.png",
-      "description": "I've been playing it since the early days of smartphones. Probably the first game I ever played.",
-      "url": "https://minecraft.net"
+    "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co68lb.png",
+    "url": "https://www.paradoxinteractive.com/games/cities-skylines-ii"
+  },
+  {
+    "title": { "en": "Minecraft", "ja": "Minecraft" },
+    "description": {
+      "en": "I've been playing it since the early days of smartphones. Probably the first game I ever played.",
+      "ja": "スマホが普及し始めた頃からプレイしてる。多分一番最初にプレイしたゲーム。"
     },
-    {
-      "title": "Project Sekai",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co6bw0.png",
-      "description": "Even though I can't do full combos, I'm still playing Master.",
-      "url": "https://pjsekai.sega.jp"
+    "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.png",
+    "url": "https://minecraft.net"
+  },
+  {
+    "title": { "en": "Project Sekai", "ja": "プロジェクトセカイ カラフルステージ！ feat. 初音ミク" },
+    "description": {
+      "en": "Even though I can't do full combos, I'm still playing Master.",
+      "ja": "フルコンボできないけど、マスターをプレイしてる。"
     },
-    {
-      "title": "VALORANT",
-      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mvt.png",
-      "description": "I haven't been playing it much lately, but it's quite fun.",
-      "url": "https://playvalorant.com"
-    }
+    "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co6bw0.png",
+    "url": "https://pjsekai.sega.jp"
+  },
+  {
+    "title": { "en": "VALORANT", "ja": "VALORANT" },
+    "description": {
+      "en": "I haven't been playing it much lately, but it's quite fun.",
+      "ja": "最近あまりプレイしてないけど、なかなか楽しい。"
+    },
+    "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mvt.png",
+    "url": "https://playvalorant.com"
+  }
 ]

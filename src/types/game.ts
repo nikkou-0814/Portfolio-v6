@@ -1,6 +1,6 @@
 export interface Game {
-    title: string;
+    title: Record<string, string>;
     image: string;
-    description: string;
+    description: Record<string, string>;
     url: string;
 }

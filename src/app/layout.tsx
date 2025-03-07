@@ -1,8 +1,8 @@
 import "./globals.css"
 import { Inter } from "next/font/google"
 import Providers from "./providers"
-import Header from "./components/Header"
-import Footer from './components/footer';
+import Header from "@/components/Header"
+import Footer from '@/components/footer';
 import {NextIntlClientProvider} from 'next-intl';
 import {getLocale, getMessages} from 'next-intl/server';
 

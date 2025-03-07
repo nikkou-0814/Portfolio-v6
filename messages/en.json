@@ -31,7 +31,8 @@
     },
     "Projects": {
       "title": "My Projects",
-      "subtitle": "These are my works and their associated GitHub repositories. I’ve learned a lot from each of these projects."
+      "subtitle": "These are my works and their associated GitHub repositories. I’ve learned a lot from each of these projects.",
+      "viewsite": "View Site"
     },
     "Favorites": {
       "title": "My Favorites",

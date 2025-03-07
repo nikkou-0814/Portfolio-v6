@@ -1,6 +1,6 @@
 export interface Project {
-    title: string;
-    description: string;
+    title: Record<string, string>;
+    description: Record<string, string>;
     image: string;
     github: string;
     url?: string;

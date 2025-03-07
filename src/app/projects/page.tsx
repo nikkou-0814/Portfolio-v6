@@ -6,9 +6,10 @@ import { SiGithub } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { Project } from '../../types/project';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function Projects() {
+  const locale = useLocale();
   const [projects, setProjects] = useState<Project[]>([]);
   const t = useTranslations('Projects');
 
@@ -44,7 +45,7 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
-              key={project.title}
+              key={project.title[locale] || project.title['en']}
               className="group relative flex flex-col rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-950 border border-gray-300 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -53,20 +54,22 @@ export default function Projects() {
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src={project.image}
-                  alt={project.title}
-                  layout="fill"
-                  objectFit="cover"
+                  alt={project.title[locale] || project.title['en']}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  style={{ objectFit: 'cover' }}
                   className="transform group-hover:scale-110 transition-transform duration-500"
+                  priority={index === 0}
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
               <div className="p-6 flex-grow">
                 <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-2">
-                  {project.title}
+                  {project.title[locale] || project.title['en']}
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  {project.description}
+                  {project.description[locale] || project.description['en']}
                 </p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -105,7 +108,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 text-nowrap flex-grow"
                     >
-                      View Site
+                      {t('viewsite')}
                       <ExternalLink className="w-5 h-5" />
                     </a>
                   )}

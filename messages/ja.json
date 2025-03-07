@@ -31,7 +31,8 @@
     },
     "Projects": {
       "title": "My Projects",
-      "subtitle": "これらは私の作ったもので、それぞれのプロジェクトから多くのことを学ぶことができました。"
+      "subtitle": "これらは私の作ったもので、それぞれのプロジェクトから多くのことを学ぶことができました。",
+      "viewsite": "サイトを表示"
     },
     "Favorites": {
       "title": "My Favorites",
