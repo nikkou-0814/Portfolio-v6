@@ -109,7 +109,7 @@
     },
     "image": "/images/sc11.png",
     "github": "https://github.com/nikkou-0814/Shin-Quick",
-    "url": "https://shin-quick.vercel.app/",
+    "url": "https://app.shinquick.nikkou.dev",
     "tags": ["Next.js", "TailwindCSS", "Vercel"]
   }
 ]
