@@ -7,9 +7,24 @@ import { OpeningAnimationProps, Sparkle} from '@/types/opening'
 const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, projects }) => {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [, setScreenSize] = useState({ width: 0, height: 0 });
+  const [isMobile, setIsMobile] = useState(false);
   
   useEffect(() => {
     setMounted(true);
+    
+    const updateScreenSize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    updateScreenSize();
+    window.addEventListener('resize', updateScreenSize);
+    
+    return () => window.removeEventListener('resize', updateScreenSize);
   }, []);
 
   const [step, setStep] = useState(1);
@@ -80,35 +95,28 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, proj
   const prevFillRef = useRef(0);
 
   const generateSparklesFromFill = useCallback((currentFill: number, prevFill: number): Sparkle[] => {
-    if (currentFill <= prevFill) return [];
+    if (currentFill <= prevFill || isMobile) return [];
     
-    const newFillWidth = currentFill - prevFill;
     const textEl = textRef.current;
     if (!textEl) return [];
     const textRect = textEl.getBoundingClientRect();
     const totalWidth = textRect.width;
-    const numSparkles = Math.floor(newFillWidth / 2) + 3;
-    const newSparkles: Sparkle[] = Array(numSparkles).fill(0).map((_, i) => {
-      const fillPosition = prevFill + (Math.random() * newFillWidth);
-      const xOffset = (fillPosition / 100) * totalWidth;
-      const absoluteX = textRect.left + xOffset;
-      const absoluteY = textRect.top + Math.random() * textRect.height;
-
-      return {
-        id: Date.now() + i,
-        x: absoluteX,
-        y: absoluteY,
-        size: Math.random() * 4 + 2,
-        velocityX: (Math.random() - 0.5) * 4,
-        velocityY: -Math.random() * 3 - 2,
-        opacity: Math.random() * 0.7 + 0.3,
-        rotation: Math.random() * 360,
-        rotationVelocity: (Math.random() - 0.5) * 6,
-        color: Math.random() > 0.5 ? gradientStart : gradientEnd
-      };
-    });
+    const numSparkles = Math.floor((currentFill - prevFill) / 2) + 3;
+    
+    const newSparkles: Sparkle[] = Array(numSparkles).fill(0).map((_, i) => ({
+      id: Date.now() + i,
+      x: textRect.left + ((prevFill + Math.random() * (currentFill - prevFill)) / 100) * totalWidth,
+      y: textRect.top + Math.random() * textRect.height,
+      size: Math.random() * 4 + 2,
+      velocityX: (Math.random() - 0.5) * 4,
+      velocityY: -Math.random() * 3 - 2,
+      opacity: Math.random() * 0.7 + 0.3,
+      rotation: Math.random() * 360,
+      rotationVelocity: (Math.random() - 0.5) * 6,
+      color: Math.random() > 0.5 ? gradientStart : gradientEnd
+    }));
     return newSparkles;
-  }, [gradientStart, gradientEnd, textRef]);
+  }, [gradientStart, gradientEnd, isMobile]);
 
   useEffect(() => {
     if (sparklePositions.length === 0) return;
@@ -195,152 +203,156 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, proj
     <>
       {mounted && (
         <AnimatePresence>
-        <motion.div
-          ref={containerRef}
-          initial={{ opacity: 1, backgroundColor: themeBackgroundColor }}
-          animate={{ opacity: opacity, backgroundColor: backgroundColor }}
-          transition={{
-            opacity: { duration: 0.5, ease: customEasing },
-            backgroundColor: { delay: 0.5, duration: 1, ease: customEasing }
-          }}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
-            zIndex: 50,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            overflow: 'hidden',
-            backgroundColor: themeBackgroundColor
-          }}
-        >
-          {step >= 5 && (
-            <div 
-              className="absolute top-0 left-0 w-full"
-              style={{ 
-                height: `${backgroundFill}%`, 
-                backgroundColor: themeBackgroundColor,
-                transition: `height 0.016s ${cssEasing}`,
-                zIndex: 51
-              }}
-            />
-          )}
-
-          {step >= 2 && (
-            <div className="relative" ref={nikkouRef} style={{ zIndex: 52 }}>
-              <motion.h1 
-                ref={textRef}
-                className="text-8xl font-bold" 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.2 }}
-                transition={{ duration: 1, ease: customEasing }}
+          <motion.div
+            ref={containerRef}
+            initial={{ opacity: 1, backgroundColor: themeBackgroundColor }}
+            animate={{ opacity: opacity, backgroundColor: backgroundColor }}
+            transition={{
+              opacity: { duration: 0.5, ease: customEasing },
+              backgroundColor: { delay: 0.5, duration: 1, ease: customEasing }
+            }}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              zIndex: 50,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexDirection: 'column',
+              overflow: 'hidden',
+              backgroundColor: themeBackgroundColor
+            }}
+          >
+            {step >= 5 && (
+              <div 
+                className="absolute top-0 left-0 w-full"
                 style={{ 
-                  color: textColor
+                  height: `${backgroundFill}%`, 
+                  backgroundColor: themeBackgroundColor,
+                  transition: `height 0.016s ${cssEasing}`,
+                  zIndex: 51
                 }}
-              >
-                nikkou
-              </motion.h1>
+              />
+            )}
 
-              {step >= 3 && (
-                <div 
-                  ref={textContainerRef}
-                  className="absolute top-0 left-0 text-8xl font-bold overflow-hidden whitespace-nowrap"
+            {step >= 2 && (
+              <div className="relative" ref={nikkouRef} style={{ zIndex: 52 }}>
+                <motion.h1 
+                  ref={textRef}
+                  className={`font-bold ${isMobile ? 'text-5xl' : 'text-8xl'}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.2 }}
+                  transition={{ duration: 1, ease: customEasing }}
                   style={{ 
-                    width: '100%',
-                    height: '100%'
+                    color: textColor
                   }}
                 >
+                  nikkou
+                </motion.h1>
+
+                {step >= 3 && (
                   <div 
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+                    ref={textContainerRef}
+                    className={`absolute top-0 left-0 font-bold overflow-hidden whitespace-nowrap ${isMobile ? 'text-5xl' : 'text-8xl'}`}
                     style={{ 
-                      width: `${textFill}%`,
-                      transition: `width 0.016s ${cssEasing}`
+                      width: '100%',
+                      height: '100%'
                     }}
                   >
-                    nikkou
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-
-          {sparklePositions.map((sparkle) => (
-            <div
-              key={`dynamic-sparkle-${sparkle.id}`}
-              className="absolute"
-              style={{
-                width: `${sparkle.size}px`,
-                height: `${sparkle.size}px`,
-                backgroundColor: sparkle.color,
-                borderRadius: '50%',
-                left: `${sparkle.x}px`,
-                top: `${sparkle.y}px`,
-                opacity: sparkle.opacity,
-                transform: `rotate(${sparkle.rotation}deg)`,
-                filter: 'blur(1px)',
-                pointerEvents: 'none',
-                zIndex: 60
-              }}
-            />
-          ))}
-
-          {step >= 4 && step < 6 && (
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 53 }}>
-              <div className="relative">
-                {projects.slice(0, 12).map((project, index) => {
-                  const angle = (index / 12) * Math.PI * 2;
-                  const radius = 300; 
-
-                  return (
-                    <motion.div
-                      key={`project-${index}`}
-                      initial={{ 
-                        opacity: 0, 
-                        scale: 0.5,
-                        x: 0,
-                        y: 0,
-                        rotate: 0
-                      }}
-                      animate={{ 
-                        opacity: [0, 1, 1, 0], 
-                        scale: [0.5, 1, 1, 0.8],
-                        x: [0, 0, Math.cos(angle) * radius, Math.cos(angle) * radius * 2],
-                        y: [0, 0, Math.sin(angle) * radius, Math.sin(angle) * radius * 2],
-                        rotate: [0, 0, 0, 0]
-                      }}
-                      transition={{ 
-                        duration: 3.5, 
-                        times: [0, 0.1, 0.7, 1],
-                        ease: customEasing,
-                        delay: index * 0.1
-                      }}
-                      className="absolute rounded-lg overflow-hidden shadow-lg"
-                      style={{
-                        width: '160px',
-                        height: '100px',
-                        left: '-80px',
-                        top: '-50px',
+                    <div 
+                      className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+                      style={{ 
+                        width: `${textFill}%`,
+                        transition: `width 0.016s ${cssEasing}`
                       }}
                     >
-                      <Image 
-                        src={project.image} 
-                        alt={project.title.en} 
-                        width={160} 
-                        height={100} 
-                        className="w-full h-full object-cover"
-                      />
-                    </motion.div>
-                  );
-                })}
+                      nikkou
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          )}
-        </motion.div>
-      </AnimatePresence>
+            )}
+
+            {/* パーティクルはモバイル以外でのみ表示 */}
+            {!isMobile && sparklePositions.map((sparkle) => (
+              <div
+                key={`dynamic-sparkle-${sparkle.id}`}
+                className="absolute"
+                style={{
+                  width: `${sparkle.size}px`,
+                  height: `${sparkle.size}px`,
+                  backgroundColor: sparkle.color,
+                  borderRadius: '50%',
+                  left: `${sparkle.x}px`,
+                  top: `${sparkle.y}px`,
+                  opacity: sparkle.opacity,
+                  transform: `rotate(${sparkle.rotation}deg)`,
+                  filter: 'blur(1px)',
+                  pointerEvents: 'none',
+                  zIndex: 60
+                }}
+              />
+            ))}
+
+            {step >= 4 && step < 6 && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 53 }}>
+                <div className="relative">
+                  {projects.slice(0, isMobile ? 6 : 12).map((project, index) => {
+                    const totalProjects = isMobile ? 6 : 12;
+                    const angle = (index / totalProjects) * Math.PI * 2;
+                    const radius = isMobile ? 150 : 300; 
+                    const projectSize = isMobile ? 120 : 160;
+                    const projectHeight = isMobile ? 75 : 100;
+
+                    return (
+                      <motion.div
+                        key={`project-${index}`}
+                        initial={{ 
+                          opacity: 0, 
+                          scale: 0.5,
+                          x: 0,
+                          y: 0,
+                          rotate: 0
+                        }}
+                        animate={{ 
+                          opacity: [0, 1, 1, 0], 
+                          scale: [0.5, 1, 1, 0.8],
+                          x: [0, 0, Math.cos(angle) * radius, Math.cos(angle) * radius * 2],
+                          y: [0, 0, Math.sin(angle) * radius, Math.sin(angle) * radius * 2],
+                          rotate: [0, 0, 0, 0]
+                        }}
+                        transition={{ 
+                          duration: 3.5, 
+                          times: [0, 0.1, 0.7, 1],
+                          ease: customEasing,
+                          delay: index * 0.1
+                        }}
+                        className="absolute rounded-lg overflow-hidden shadow-lg"
+                        style={{
+                          width: `${projectSize}px`,
+                          height: `${projectHeight}px`,
+                          left: `-${projectSize/2}px`,
+                          top: `-${projectHeight/2}px`,
+                        }}
+                      >
+                        <Image 
+                          src={project.image} 
+                          alt={project.title.en} 
+                          width={projectSize} 
+                          height={projectHeight} 
+                          className="w-full h-full object-cover"
+                        />
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
       )}
     </>
   );
