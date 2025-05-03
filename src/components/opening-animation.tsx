@@ -142,11 +142,11 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, proj
   }, [sparklePositions]);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setStep(2), 1000);
-    const timer2 = setTimeout(() => setStep(3), 2000);
+    const timer1 = setTimeout(() => setStep(2), 500);
+    const timer2 = setTimeout(() => setStep(3), 800);
     const timer3 = setTimeout(() => {
       const startTime = Date.now();
-      const duration = 2000;
+      const duration = 1500;
 
       const fillInterval = setInterval(() => {
         const elapsed = Date.now() - startTime;
@@ -167,11 +167,11 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, proj
           setStep(4);
         }
       }, 16);
-    }, 3000);
-    const timer4 = setTimeout(() => setStep(5), 6000);
+    }, 1200);
+    const timer4 = setTimeout(() => setStep(5), 4000);
     const timer5 = setTimeout(() => {
       const startTime = Date.now();
-      const duration = 1000;
+      const duration = 800;
 
       const backgroundFillInterval = setInterval(() => {
         const elapsed = Date.now() - startTime;
@@ -186,13 +186,13 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, proj
           setStep(6);
         }
       }, 16);
-    }, 8000);
+    }, 5500);
     const timer6 = setTimeout(() => {
       setOpacity(0);
       setTimeout(() => {
         if (onAnimationComplete) onAnimationComplete();
       }, 500);
-    }, 10000);
+    }, 7000);
 
     return () => {
       [timer1, timer2, timer3, timer4, timer5, timer6].forEach(timer => clearTimeout(timer));
