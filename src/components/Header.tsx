@@ -13,6 +13,7 @@ const NAVIGATION_ITEMS = [
   { href: '/about', label: 'About' },
   { href: '/projects', label: 'Projects' },
   { href: '/favorites', label: 'Favorites' },
+  { href: '/suitou', label: 'Suitou' },
 ]
 
 const LANGUAGES = [
