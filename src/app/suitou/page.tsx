@@ -19,7 +19,7 @@ export default function Suitou() {
           </div>
         </div>
         <div className="space-y-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-300">
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8 text-center">
             {t('activities.title')}
           </h2>
           <p className="text-gray-700 dark:text-gray-400 leading-relaxed max-w-2xl">
@@ -33,17 +33,18 @@ export default function Suitou() {
               href="https://www.tunecore.co.jp/artists/suitou"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center space-y-4 transform transition-transform duration-200 hover:scale-105"
+              className="group flex flex-col items-center space-y-4 transition-transform duration-300"
             >
-              <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-lg border border-purple-200 dark:border-purple-800 bg-gradient-to-br from-purple-400 via-pink-400 to-purple-600">
+              <div className="relative w-64 h-64 group flex flex-col rounded-full overflow-hidden bg-gray-100 dark:bg-gray-950 border border-gray-300 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300">
                 <Image
                   src="/images/suitou_icon.png"
                   alt="Suitou Artist"
                   fill
-                  className="object-cover"
+                  className="object-cover transform transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
+                <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </div>
               <span className="text-purple-600 dark:text-purple-300 font-medium">
                 {t('activities.suitou')}
@@ -59,17 +60,18 @@ export default function Suitou() {
               href="https://linkco.re/UzpyPhE0"
               target="_blank"
               rel="noopener noreferrer"
-              className="block transform transition-transform duration-200 hover:scale-105"
+              className="group block transition-transform duration-300"
             >
-              <div className="relative w-64 h-64 rounded-lg overflow-hidden shadow-lg border border-purple-200 dark:border-purple-800 bg-gradient-to-br from-indigo-400 via-purple-400 to-pink-400">
+              <div className="relative w-64 h-64 group flex flex-col rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-950 border border-gray-300 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300">
                 <Image
                   src="/images/latest-release.png"
                   alt="Latest Release Artwork"
                   fill
-                  className="object-cover"
+                  className="object-cover transform transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
+                <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </div>
             </a>
             <div className="text-center space-y-2">
