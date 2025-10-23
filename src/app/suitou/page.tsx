@@ -7,7 +7,7 @@ export default function Suitou() {
   const t = useTranslations('Suitou');
   return (
     <main className="min-h-screen">
-      <section className="flex flex-col items-center justify-center min-h-screen p-8 space-y-8 max-w-4xl mx-auto">
+      <section className="flex flex-col items-center justify-center p-8 space-y-8 max-w-4xl mx-auto">
         <div className="space-y-4 text-center mt-16">
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent p-2">
             {t('title')}
@@ -91,7 +91,7 @@ export default function Suitou() {
         </div>
       </section>
       
-      <section className="flex flex-col items-center justify-center min-h-screen p-8 space-y-8 max-w-4xl mx-auto">
+      <section className="flex flex-col items-center justify-center p-8 max-w-4xl mx-auto">
         <div className="space-y-8 text-gray-700 dark:text-gray-400 leading-relaxed max-w-2xl">
           <div className="space-y-8">
             <h2 className="text-2xl font-semibold text-purple-600 dark:text-purple-400 text-center">
