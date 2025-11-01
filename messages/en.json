@@ -1,70 +1,70 @@
 {
-    "HomePage": {
-      "subtitle": "Hi! I am a Japanese student who recently started studying backend development. I like to create seismic projects.",
-      "seeprojects": "See My Projects",
-      "aboutme": "About Me"
+  "HomePage": {
+    "subtitle": "Hello! I'm a Japanese frontend developer who enjoys music and web development.",
+    "seeprojects": "See My Projects",
+    "aboutme": "About Me"
+  },
+  "About": {
+    "title": "About Me",
+    "subtitle": "Hello! I'm a Japanese frontend developer who enjoys music and web development. Here, I'd like to share my past experiences and how my interest in earthquakes began.",
+    "programming": {
+      "title": "My Start in Programming",
+      "content1": "When I was in 4th grade, I discovered programming through a platform called ",
+      "content2": ". I learned the basics by creating games and apps there, which laid the foundation for my later projects, including earthquake-related development."
     },
-    "About": {
-      "title": "About Me",
-      "subtitle": "Hi there! I’m a student from Japan who is passionate about web design and application development. Recently, I’ve developed a strong interest in earthquakes and disaster prevention.",
-      "programming": {
-        "title": "My Start in Programming",
-        "content1": "When I was in 4th grade, I discovered programming through a platform called ",
-        "content2": ". I learned the basics by creating games and apps there, which laid the foundation for my later projects, including earthquake-related development."
-      },
-      "webdesign": {
-        "title": "My Challenge in Web Design",
-        "content": "My curiosity about programming led me to start creating websites with HTML. Initially, my designs weren’t great, but by studying other sites for inspiration, I gradually honed my skills."
-      },
-      "earthquake": {
-        "title": "Discovering Earthquakes",
-        "content1": "My interest in earthquakes began with the Noto Peninsula Earthquake. That day, I was at my mother’s family home preparing dinner when the house suddenly shook violently, and emergency alerts blared. When I opened the emergency earthquake alert software,",
-        "content2": ", it displayed \"Maximum intensity 7.\" This experience significantly deepened my fascination with earthquake observation."
-      },
-      "earthquaketool": {
-        "title": "Developing Earthquake Information Tools",
-        "content": "My first earthquake-related tool was \"EarthSaidBOT.\" While it had many shortcomings due to my inexperience in design and implementation, I have improved it over time by gaining more experience. Currently, I’m running a relay server that aggregates data from multiple sources, working to enhance the accuracy and stability of earthquake information delivery. This allows me to provide timely and reliable updates.",
-        "note1": "Note: This is operated within the scope of personal use in compliance with ",
-        "note2": "'s guidelines."
-      },
-      "last": "That earthquake profoundly changed the way I view earthquakes."
+    "webdesign": {
+      "title": "My Challenge in Web Design",
+      "content": "My curiosity about programming led me to start creating websites with HTML. Initially, my designs weren’t great, but by studying other sites for inspiration, I gradually honed my skills."
     },
-    "Projects": {
-      "title": "My Projects",
-      "subtitle": "These are my works and their associated GitHub repositories. I’ve learned a lot from each of these projects.",
-      "viewsite": "View Site"
+    "earthquake": {
+      "title": "Discovering Earthquakes",
+      "content1": "My interest in earthquakes began with the Noto Peninsula Earthquake. That day, I was at my mother’s family home preparing dinner when the house suddenly shook violently, and emergency alerts blared. When I opened the emergency earthquake alert software,",
+      "content2": ", it displayed \"Maximum intensity 7.\" This experience significantly deepened my fascination with earthquake observation."
     },
-    "Favorites": {
-      "title": "My Favorites",
-      "subtitle": "My favorite music and games that I enjoy.",
-      "music": "Music",
-      "game": "Games"
+    "earthquaketool": {
+      "title": "Developing Earthquake Information Tools",
+      "content": "My first earthquake-related tool was \"EarthSaidBOT.\" While it had many shortcomings due to my inexperience in design and implementation, I have improved it over time by gaining more experience. Currently, I’m running a relay server that aggregates data from multiple sources, working to enhance the accuracy and stability of earthquake information delivery. This allows me to provide timely and reliable updates.",
+      "note1": "Note: This is operated within the scope of personal use in compliance with ",
+      "note2": "'s guidelines."
     },
-    "Suitou": {
-      "title": "Suitou",
-      "subtitle": "This is about my music name “Suitou” (すいとう). Here you can find my musical activities and works.",
-      "suitou": {
-        "title": "About Suitou",
-        "title1": "The meaning behind the name “Suitou”",
-        "content1": "When I started my musical journey, I was looking for a name that could express <b>my freedom and musical range</b>. For programming and technology I’ve used names like “nikkou” and “Kotaro Ito,” but music is more intuitive—<b>a reflection of my inner self</b>. That’s why I sought a completely new name.",
-        "title2": "Origin of the name",
-        "content2": "The word “Suitou” combines:",
-        "content3": "Sui (Water) … changing shape freely, flow, transparency",
-        "content4": "Tou (Light) … a small flame in the dark, a guide, hope",
-        "content5": "The name was born by bringing these two together.",
-        "content6": "Like a “light flickering on the water’s surface,” I want to keep a personal glow while shifting without being bound by genre.",
-        "title3": "Charm of its sound",
-        "content7": "Pronounced “suitou,” it happens to sound the same as the Japanese word for “water bottle” (水筒, suitou), which adds a playful and familiar nuance for Japanese listeners. In Roman letters, however, “Suitou” takes on a more <b>fantastical</b> tone that feels appealing even abroad. Because it holds both <b>the ordinary and the imaginary</b>, I believe the name can embrace the wide scope of my music.",
-        "title4": "Music to come under the name “Suitou”",
-        "content8": "I’ve just begun, so I haven’t fixed on a genre yet. Sometimes it’s playful fun, sometimes it carries deep emotion. But I hope all of it will resonate under the name “Suitou,” <b>shimmering</b> and <b>shining</b> as sound."
-      },
-      "activities": {
-        "title": "Activities",
-        "subtitle": "You can find Suitou’s latest releases and more here.",
-        "suitou": "Suitou / 水燈",
-        "latest_release": "Latest Release",
-        "latest_release_title": "Voice with Intention (feat. Miyamai Moca)",
-        "release_date": "Release Date: 2025/9/1"
-      }
+    "last": "That earthquake profoundly changed the way I view earthquakes."
+  },
+  "Projects": {
+    "title": "My Projects",
+    "subtitle": "These are my works and their associated GitHub repositories. I’ve learned a lot from each of these projects.",
+    "viewsite": "View Site"
+  },
+  "Favorites": {
+    "title": "My Favorites",
+    "subtitle": "My favorite music and games that I enjoy.",
+    "music": "Music",
+    "game": "Games"
+  },
+  "Suitou": {
+    "title": "Suitou",
+    "subtitle": "This is about my music name “Suitou” (すいとう). Here you can find my musical activities and works.",
+    "activities": {
+      "title": "Activities",
+      "subtitle": "You can find Suitou’s latest releases and more here.",
+      "suitou": "Suitou / 水燈",
+      "latest_release": "Latest Release",
+      "latest_release_title": "Voice with Intention (feat. Miyamai Moca)",
+      "release_date": "Release Date: 2025/9/1"
+    },
+    "about_suitou": {
+      "title": "About Suitou",
+      "title1": "The meaning behind the name “Suitou”",
+      "content1": "When I started my musical journey, I was looking for a name that could express <b>my freedom and musical range</b>. For programming and technology I’ve used names like “nikkou” and “Kotaro Ito,” but music is more intuitive—<b>a reflection of my inner self</b>. That’s why I sought a completely new name.",
+      "title2": "Origin of the name",
+      "content2": "The word “Suitou” combines:",
+      "content3": "Sui (Water) … changing shape freely, flow, transparency",
+      "content4": "Tou (Light) … a small flame in the dark, a guide, hope",
+      "content5": "The name was born by bringing these two together.",
+      "content6": "Like a “light flickering on the water’s surface,” I want to keep a personal glow while shifting without being bound by genre.",
+      "title3": "Charm of its sound",
+      "content7": "Pronounced “suitou,” it happens to sound the same as the Japanese word for “water bottle” (水筒, suitou), which adds a playful and familiar nuance for Japanese listeners. In Roman letters, however, “Suitou” takes on a more <b>fantastical</b> tone that feels appealing even abroad. Because it holds both <b>the ordinary and the imaginary</b>, I believe the name can embrace the wide scope of my music.",
+      "title4": "Music to come under the name “Suitou”",
+      "content8": "I’ve just begun, so I haven’t fixed on a genre yet. Sometimes it’s playful fun, sometimes it carries deep emotion. But I hope all of it will resonate under the name “Suitou,” <b>shimmering</b> and <b>shining</b> as sound."
     }
+  }
 }

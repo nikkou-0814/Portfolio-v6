@@ -95,43 +95,43 @@ export default function Suitou() {
         <div className="space-y-8 text-gray-700 dark:text-gray-400 leading-relaxed max-w-2xl">
           <div className="space-y-8">
             <h2 className="text-2xl font-semibold text-purple-600 dark:text-purple-400 text-center">
-              {t('suitou.title')}
+              {t('about_suitou.title')}
             </h2>
             <h3 className="text-xl font-semibold text-purple-600 dark:text-purple-400">
-              {t('suitou.title1')}
+              {t('about_suitou.title1')}
             </h3>
             <p>
-              {t.rich('suitou.content1', {
+              {t.rich('about_suitou.content1', {
                 b: (chunks) => <strong className="font-semibold text-purple-600 dark:text-purple-200">{chunks}</strong>,
               })}
             </p>
             <h4 className="text-xl font-semibold text-purple-600 dark:text-purple-400">
-              {t('suitou.title2')}
+              {t('about_suitou.title2')}
             </h4>
-            <p>{t('suitou.content2')}</p>
+            <p>{t('about_suitou.content2')}</p>
             <ul className="list-disc pl-6 space-y-1">
-              <li>{t('suitou.content3')}</li>
-              <li>{t('suitou.content4')}</li>
+              <li>{t('about_suitou.content3')}</li>
+              <li>{t('about_suitou.content4')}</li>
             </ul>
-            <p>{t('suitou.content5')}</p>
+            <p>{t('about_suitou.content5')}</p>
             <div className="p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg border border-purple-200 dark:border-purple-800">
               <p className="italic">
-                {t('suitou.content6')}
+                {t('about_suitou.content6')}
               </p>
             </div>
             <h4 className="text-xl font-semibold text-purple-600 dark:text-purple-400">
-              {t('suitou.title3')}
+              {t('about_suitou.title3')}
             </h4>
             <p>
-              {t.rich('suitou.content7', {
+              {t.rich('about_suitou.content7', {
                 b: (chunks) => <strong className="font-semibold text-purple-600 dark:text-purple-200">{chunks}</strong>,
               })}
             </p>
             <h4 className="text-xl font-semibold text-purple-600 dark:text-purple-400">
-              {t('suitou.title4')}
+              {t('about_suitou.title4')}
             </h4>
             <p>
-              {t.rich('suitou.content8', {
+              {t.rich('about_suitou.content8', {
                 b: (chunks) => <strong className="font-semibold text-purple-600 dark:text-purple-200">{chunks}</strong>,
               })}
             </p>
