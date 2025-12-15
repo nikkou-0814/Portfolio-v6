@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useCallback, FC, useMemo } from 're
 import Image from 'next/image';
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from 'framer-motion';
-import { OpeningAnimationProps, Sparkle} from '@/types/opening'
+import { OpeningAnimationProps } from '@/types';
 
 const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, projects }) => {
   const { resolvedTheme } = useTheme();
@@ -31,7 +31,6 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, proj
   const [textFill, setTextFill] = useState(0);
   const [backgroundFill, setBackgroundFill] = useState(0);
   const [opacity, setOpacity] = useState(1);
-  const [sparklePositions, setSparklePositions] = useState<Sparkle[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const nikkouRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -39,8 +38,6 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, proj
   const oppositeTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
   const backgroundColor = oppositeTheme === 'dark' ? '#0a0a0a' : '#ffffff';
   const textColor = oppositeTheme === 'dark' ? '#ffffff' : '#000000';
-  const gradientStart = resolvedTheme === 'dark' ? '#a855f7' : '#9333ea';
-  const gradientEnd = resolvedTheme === 'dark' ? '#ec4899' : '#db2777';
   const themeBackgroundColor = resolvedTheme === 'dark' ? '#0a0a0a' : '#ffffff';
   const cssEasing = 'cubic-bezier(0.19, 1, 0.22, 1)';
   const customEasing = useMemo(() => [0.19, 1, 0.22, 1], []);
@@ -94,53 +91,6 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, proj
 
   const prevFillRef = useRef(0);
 
-  const generateSparklesFromFill = useCallback((currentFill: number, prevFill: number): Sparkle[] => {
-    if (currentFill <= prevFill || isMobile) return [];
-    
-    const textEl = textRef.current;
-    if (!textEl) return [];
-    const textRect = textEl.getBoundingClientRect();
-    const totalWidth = textRect.width;
-    const numSparkles = Math.floor((currentFill - prevFill) / 2) + 3;
-    
-    const newSparkles: Sparkle[] = Array(numSparkles).fill(0).map((_, i) => ({
-      id: Date.now() + i,
-      x: textRect.left + ((prevFill + Math.random() * (currentFill - prevFill)) / 100) * totalWidth,
-      y: textRect.top + Math.random() * textRect.height,
-      size: Math.random() * 4 + 2,
-      velocityX: (Math.random() - 0.5) * 4,
-      velocityY: -Math.random() * 3 - 2,
-      opacity: Math.random() * 0.7 + 0.3,
-      rotation: Math.random() * 360,
-      rotationVelocity: (Math.random() - 0.5) * 6,
-      color: Math.random() > 0.5 ? gradientStart : gradientEnd
-    }));
-    return newSparkles;
-  }, [gradientStart, gradientEnd, isMobile]);
-
-  useEffect(() => {
-    if (sparklePositions.length === 0) return;
-    const gravity = 0.15;
-    const friction = 0.98;
-    const animationFrame = requestAnimationFrame(() => {
-      setSparklePositions(prevPositions => 
-        prevPositions
-          .map(sparkle => ({
-            ...sparkle,
-            x: sparkle.x + sparkle.velocityX,
-            y: sparkle.y + sparkle.velocityY,
-            velocityY: sparkle.velocityY + gravity,
-            velocityX: sparkle.velocityX * friction,
-            rotation: sparkle.rotation + sparkle.rotationVelocity,
-            opacity: sparkle.opacity - 0.01,
-            size: sparkle.size > 0.5 ? sparkle.size - 0.02 : sparkle.size
-          }))
-          .filter(sparkle => sparkle.opacity > 0)
-      );
-    });
-    return () => cancelAnimationFrame(animationFrame);
-  }, [sparklePositions]);
-
   useEffect(() => {
     const timer1 = setTimeout(() => setStep(2), 500);
     const timer2 = setTimeout(() => setStep(3), 800);
@@ -153,11 +103,6 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, proj
         const progress = Math.min(elapsed / duration, 1);
         const easedProgress = cubicBezier(customEasing[0], customEasing[1], customEasing[2], customEasing[3], progress);
         const newFill = easedProgress * 100;
-
-        const newSparkles = generateSparklesFromFill(newFill, prevFillRef.current);
-        if (newSparkles.length > 0) {
-          setSparklePositions(prev => [...prev, ...newSparkles]);
-        }
 
         setTextFill(newFill);
         prevFillRef.current = newFill;
@@ -197,7 +142,7 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, proj
     return () => {
       [timer1, timer2, timer3, timer4, timer5, timer6].forEach(timer => clearTimeout(timer));
     };
-  }, [resolvedTheme, onAnimationComplete, customEasing, generateSparklesFromFill]);
+  }, [resolvedTheme, onAnimationComplete, customEasing]);
 
   return (
     <>
@@ -275,27 +220,6 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete, proj
                 )}
               </div>
             )}
-
-            {/* パーティクルはモバイル以外でのみ表示 */}
-            {!isMobile && sparklePositions.map((sparkle) => (
-              <div
-                key={`dynamic-sparkle-${sparkle.id}`}
-                className="absolute"
-                style={{
-                  width: `${sparkle.size}px`,
-                  height: `${sparkle.size}px`,
-                  backgroundColor: sparkle.color,
-                  borderRadius: '50%',
-                  left: `${sparkle.x}px`,
-                  top: `${sparkle.y}px`,
-                  opacity: sparkle.opacity,
-                  transform: `rotate(${sparkle.rotation}deg)`,
-                  filter: 'blur(1px)',
-                  pointerEvents: 'none',
-                  zIndex: 60
-                }}
-              />
-            ))}
 
             {step >= 4 && step < 6 && (
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 53 }}>
