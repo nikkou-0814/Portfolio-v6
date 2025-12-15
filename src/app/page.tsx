@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { useTheme } from "next-themes";
 import { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { Project } from '../types/project';
+import { Project } from '@/types';
 import OpeningAnimation from '@/components/opening-animation';
 
 export default function Home() {

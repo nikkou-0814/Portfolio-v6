@@ -1,6 +1,6 @@
 import { SiGithub } from 'react-icons/si';
 
-export default function footer() {
+export default function Footer() {
   return (
     <footer className="text-gray-600 dark:text-gray-300 py-6 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4">

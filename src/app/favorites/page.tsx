@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Game } from '../../types/game';
+import { Game } from '@/types';
 import { useTranslations, useLocale } from 'next-intl';
 
 export default function Favorites() {

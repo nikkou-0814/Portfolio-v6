@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { SiGithub } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
-import { Project } from '../../types/project';
+import { Project } from '@/types';
 import { useTranslations, useLocale } from 'next-intl';
 
 export default function Projects() {
