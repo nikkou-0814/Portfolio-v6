@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback, FC, useMemo } from 'react';
+import React, { useEffect, useState, useRef, FC, useMemo } from 'react';
 import Image from 'next/image';
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from 'framer-motion';
