@@ -101,7 +101,7 @@ export function AnimatedNavTabs({
             }`}
             style={{ opacity: 0 }}
           >
-            <div className="h-full w-full rounded-lg bg-gray-300 bg-opacity-50 dark:bg-gray-200 dark:bg-opacity-20" />
+            <div className="h-full w-full rounded-lg bg-gray-300 bg-opacity-50 dark:bg-opacity-10" />
           </div>
 
           <div
