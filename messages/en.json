@@ -39,32 +39,5 @@
     "subtitle": "My favorite music and games that I enjoy.",
     "music": "Music",
     "game": "Games"
-  },
-  "Suitou": {
-    "title": "Suitou",
-    "subtitle": "This is about my music name “Suitou” (すいとう). Here you can find my musical activities and works.",
-    "activities": {
-      "title": "Activities",
-      "subtitle": "You can find Suitou’s latest releases and more here.",
-      "suitou": "Suitou / 水燈",
-      "latest_release": "Latest Release",
-      "latest_release_title": "Indelible Sector (feat. Una Otomachi)",
-      "release_date": "Release Date: 2025/12/1"
-    },
-    "about_suitou": {
-      "title": "About Suitou",
-      "title1": "The meaning behind the name “Suitou”",
-      "content1": "When I started my musical journey, I was looking for a name that could express <b>my freedom and musical range</b>. For programming and technology I’ve used names like “nikkou” and “Kotaro Ito,” but music is more intuitive—<b>a reflection of my inner self</b>. That’s why I sought a completely new name.",
-      "title2": "Origin of the name",
-      "content2": "The word “Suitou” combines:",
-      "content3": "Sui (Water) … changing shape freely, flow, transparency",
-      "content4": "Tou (Light) … a small flame in the dark, a guide, hope",
-      "content5": "The name was born by bringing these two together.",
-      "content6": "Like a “light flickering on the water’s surface,” I want to keep a personal glow while shifting without being bound by genre.",
-      "title3": "Charm of its sound",
-      "content7": "Pronounced “suitou,” it happens to sound the same as the Japanese word for “water bottle” (水筒, suitou), which adds a playful and familiar nuance for Japanese listeners. In Roman letters, however, “Suitou” takes on a more <b>fantastical</b> tone that feels appealing even abroad. Because it holds both <b>the ordinary and the imaginary</b>, I believe the name can embrace the wide scope of my music.",
-      "title4": "Music to come under the name “Suitou”",
-      "content8": "I’ve just begun, so I haven’t fixed on a genre yet. Sometimes it’s playful fun, sometimes it carries deep emotion. But I hope all of it will resonate under the name “Suitou,” <b>shimmering</b> and <b>shining</b> as sound."
-    }
   }
 }

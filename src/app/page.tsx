@@ -5,14 +5,12 @@ import { SiGithub } from 'react-icons/si';
 import Link from 'next/link';
 import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
-import { useTheme } from "next-themes";
 import { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Project } from '@/types';
 import OpeningAnimation from '@/components/opening-animation';
 
 export default function Home() {
-  const { resolvedTheme } = useTheme();
   const [imagePaths, setImagePaths] = useState<Project[]>([]);
   const [showAnimation, setShowAnimation] = useState(true);
   const t = useTranslations('HomePage');
@@ -84,22 +82,18 @@ export default function Home() {
           </div>
           <div className="relative w-4/5 hidden md:block top-5">
             <div
-              className="absolute inset-y-0 left-0 w-60 z-10 pointer-events-none"
+              className="absolute inset-y-0 left-0 w-60 z-10 pointer-events-none bg-white dark:bg-[#0a0a0a]"
               style={{
                 maskImage: "linear-gradient(to right, white, transparent)",
                 WebkitMaskImage: "linear-gradient(to right, white, transparent)",
-                backgroundColor:
-                  resolvedTheme === "dark" ? "#0a0a0a" : "white",
               }}
             ></div>
 
             <div
-              className="absolute inset-y-0 right-0 w-60 z-10 pointer-events-none"
+              className="absolute inset-y-0 right-0 w-60 z-10 pointer-events-none bg-white dark:bg-[#0a0a0a]"
               style={{
                 maskImage: "linear-gradient(to left, white, transparent)",
                 WebkitMaskImage: "linear-gradient(to left, white, transparent)",
-                backgroundColor:
-                  resolvedTheme === "dark" ? "#0a0a0a" : "white",
               }}
             ></div>
             <Marquee speed={40} gradient={false} pauseOnHover>
