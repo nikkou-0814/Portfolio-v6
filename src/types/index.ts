@@ -16,5 +16,4 @@ export interface Project {
 
 export interface OpeningAnimationProps {
     onAnimationComplete?: () => void;
-    projects: Project[];
 }
