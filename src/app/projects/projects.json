@@ -11,36 +11,6 @@
     "tags": ["Next.js", "TailwindCSS", "Vercel"]
   },
   {
-    "title": { "en": "EarthSaid BOT", "ja": "EarthSaid BOT" },
-    "description": {
-      "en": "I made this because I wanted to create something related to earthquakes.",
-      "ja": "地震に関連する何かを作りたかったから作った。"
-    },
-    "image": "/images/sc2.png",
-    "github": "https://github.com/nikkou-0814/EarthSaid",
-    "tags": ["Discord.py"]
-  },
-  {
-    "title": { "en": "Kyoshin Report BOT", "ja": "Kyoshin Report BOT" },
-    "description": {
-      "en": "This utilizes the workflow of KyoshinEewViewer for ingen.",
-      "ja": "KyoshinEewViewerのワークフローを利用して作ったBOT。"
-    },
-    "image": "/images/sc3.png",
-    "github": "https://github.com/nikkou-0814/Kyoshin-Report-BOT",
-    "tags": ["Discord.js", "Node.js"]
-  },
-  {
-    "title": { "en": "All in one PiP", "ja": "All in one PiP" },
-    "description": {
-      "en": "I made it because I wanted it for myself.",
-      "ja": "自分用に欲しかったから作った。"
-    },
-    "image": "/images/sc4.png",
-    "github": "https://github.com/nikkou-0814/All-in-one-PiP",
-    "tags": ["JavaScript"]
-  },
-  {
     "title": { "en": "EewFabric", "ja": "EewFabric" },
     "description": {
       "en": "A mod for FabricServer to receive and display earthquake early warnings.",
@@ -69,16 +39,6 @@
     "image": "/images/sc7.png",
     "github": "https://github.com/nikkou-0814/HelloPlayer",
     "tags": ["Java", "Minecraft"]
-  },
-  {
-    "title": { "en": "SlackDown", "ja": "SlackDown" },
-    "description": {
-      "en": "An extension to scroll Slack threads to the very bottom.",
-      "ja": "Slackのスレッドを一番下までスクロールするための拡張機能。"
-    },
-    "image": "/images/sc8.png",
-    "github": "https://github.com/nikkou-0814/SlackDown",
-    "tags": ["JavaScript"]
   },
   {
     "title": { "en": "Pos", "ja": "Pos" },
