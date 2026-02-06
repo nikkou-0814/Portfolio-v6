@@ -86,8 +86,22 @@ export default function About() {
             </p>
           </div>
 
-          <div className="p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg italic border border-purple-300 dark:border-purple-800">
-            <p>{t('last')}</p>
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-purple-600 dark:text-purple-400">
+              {t('music.title')}
+            </h3>
+            <p>
+              {t('music.content1')}
+              <a
+                href="https://nikkou.studio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-purple-600 dark:text-purple-400 underline"
+              >
+                NIKKOU STUDIO Records
+              </a>
+              {t('music.content2')}
+            </p>
           </div>
         </div>
       </section>
