@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <>
       {showAnimation && (
-        <OpeningAnimation onAnimationComplete={handleAnimationComplete} projects={imagePaths} />
+        <OpeningAnimation onAnimationComplete={handleAnimationComplete} />
       )}
 
       <main className="min-h-screen">
@@ -82,20 +82,19 @@ export default function Home() {
           </div>
           <div className="relative w-4/5 hidden md:block top-5">
             <div
-              className="absolute inset-y-0 left-0 w-60 z-10 pointer-events-none bg-white dark:bg-[#0a0a0a]"
+              className="absolute inset-y-0 left-0 w-1/5 z-10 pointer-events-none bg-white dark:bg-[#0a0a0a]"
               style={{
-                maskImage: "linear-gradient(to right, white, transparent)",
-                WebkitMaskImage: "linear-gradient(to right, white, transparent)",
+                maskImage: "linear-gradient(to right, white 10%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to right, white 10%, transparent 100%)",
               }}
-            ></div>
-
+            />
             <div
-              className="absolute inset-y-0 right-0 w-60 z-10 pointer-events-none bg-white dark:bg-[#0a0a0a]"
+              className="absolute inset-y-0 right-0 w-1/5 z-10 pointer-events-none bg-white dark:bg-[#0a0a0a]"
               style={{
-                maskImage: "linear-gradient(to left, white, transparent)",
-                WebkitMaskImage: "linear-gradient(to left, white, transparent)",
+                maskImage: "linear-gradient(to left, white 10%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to left, white 10%, transparent 100%)",
               }}
-            ></div>
+            />
             <Marquee speed={40} gradient={false} pauseOnHover>
               {imagePaths.map((item, index) => {
                 const localizedTitle = item.title[locale] || item.title.en;
