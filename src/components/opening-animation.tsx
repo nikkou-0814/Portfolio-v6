@@ -26,6 +26,8 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete }) =>
   const oppositeTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
   const backgroundColor = oppositeTheme === 'dark' ? '#0a0a0a' : '#ffffff';
   const themeBackgroundColor = resolvedTheme === 'dark' ? '#0a0a0a' : '#ffffff';
+  const themeTextColor = resolvedTheme === 'dark' ? '#ffffff' : '#000000';
+  const oppositeThemeTextColor = oppositeTheme === 'dark' ? '#ffffff' : '#000000';
   const customEasing = useMemo<[number, number, number, number]>(() => [0.19, 1, 0.22, 1], []);
 
   const popPalette = useMemo(
@@ -212,25 +214,18 @@ const OpeningAnimation: FC<OpeningAnimationProps> = ({ onAnimationComplete }) =>
                     <motion.span
                       key={`letter-${i}`}
                       className={`font-bold ${isMobile ? 'text-5xl' : 'text-8xl'} inline-block`}
-                      initial={{ opacity: 0, y: 60, scale: 0.3, rotate: -15 }}
+                      initial={{ opacity: 0 }}
                       animate={{
                         opacity: 1,
-                        y: 0,
-                        scale: 1,
-                        rotate: 0,
                       }}
                       transition={{
-                        type: 'spring',
-                        stiffness: 400,
-                        damping: 12,
+                        duration: 0.45,
                         delay: i * 0.08,
+                        ease: [0.22, 1, 0.36, 1],
                       }}
                       style={{
-                        color: step >= 2 ? '#9333ea' : (oppositeTheme === 'dark' ? '#ffffff' : '#000000'),
-                        filter: step >= 3
-                          ? `drop-shadow(0 0 ${isMobile ? '12px' : '20px'} #a855f7)`
-                          : `drop-shadow(0 0 0px transparent)`,
-                        transition: 'filter 1.2s ease, color 0.6s ease',
+                        color: step >= 2 ? themeTextColor : oppositeThemeTextColor,
+                        transition: 'color 0.5s ease',
                       }}
                     >
                       {letter}
